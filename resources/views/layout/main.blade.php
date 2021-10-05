@@ -40,8 +40,19 @@
     </nav>
     @yield('content')
     <footer class="border border-t border-gray-800">
-        <div class="container mx-auto text-sm px-4 py-6">
-            Powered by <a href="https://www.themoviedb.org/documentation/api" class="underline hover:text-gray-300">TMDb API</a>
+        <div class="container flex justify-between items-center mx-auto text-sm px-4 py-6">
+            <div>
+                Powered by <a href="https://www.themoviedb.org/documentation/api" class="underline hover:text-gray-300" target="_blank">TMDb API</a>
+            </div>
+
+            <div class="bg-dblue flex justify-center py-3 text-white text-center" style="white-space: pre;">
+                <span>Made With </span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 px-0.5 -mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" >
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                </svg>
+                <span> By </span>
+                <a href="https://instagram.com/7nv__" class="hover:text-gray-300 underline transition-colors" target="_blank">Ahmed</a>
+            </div>
         </div>
     </footer>
     @livewireScripts
