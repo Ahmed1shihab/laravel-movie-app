@@ -32,7 +32,7 @@
                     @foreach ($searchResults as $result)
                         <li class="border-b border-gray-700">
                             <a
-                                href="{{ $result["linkToPage"] }}" class="hover:bg-gray-700 px-3 py-3 flex items-center transition ease-in-out duration-150"
+                                href="{{ $result["linkToPage"] }}" class="result-link hover:bg-gray-700 px-3 py-3 flex items-center transition ease-in-out duration-150"
                                 @if ($loop->last) @keydown.tab="isOpen = false" @endif
                             >
                             

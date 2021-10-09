@@ -11,3 +11,7 @@
 .spinner {
     position: absolute;
 }
+
+.result-link:focus-visible {
+    @apply bg-gray-700;
+}

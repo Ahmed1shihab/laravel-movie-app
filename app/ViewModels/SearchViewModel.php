@@ -28,10 +28,26 @@ class SearchViewModel extends ViewModel
                 $title = 'Untitled';
             }
 
+            if (isset($result['poster_path'])) {
+                $posterPath = "https://image.tmdb.org/t/p/w92/" . $result['poster_path'];
+            } elseif (isset($result['profile_path'])) {
+                $posterPath = 'https://image.tmdb.org/t/p/w235_and_h235_face/' . $result['profile_path'];
+            } else {
+                $posterPath = 'https://via.placeholder.com/50x75';
+            }
+
+            if ($result['media_type'] === 'movie') {
+                $linkToPage = route('movies.show', $result['id']);
+            } elseif ($result['media_type'] === 'tv') {
+                $linkToPage = route("tv.show", $result["id"]);
+            } else {
+                $linkToPage = route('actors.show', $result['id']);
+            }
+
             return collect($result)->merge([
                 'title' => $title,
-                "poster_path" => $result["poster_path"] ? "https://image.tmdb.org/t/p/w92/" . $result['poster_path'] : "https://via.placeholder.com/50x75",
-                'linkToPage' => $result['media_type'] === 'movie' ? route('movies.show', $result['id']) : route("tv.show", $result["id"]),
+                "poster_path" => $posterPath,
+                'linkToPage' => $linkToPage,
             ])->only([
                 'title', 'linkToPage', "poster_path"
             ]);
